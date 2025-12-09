@@ -1,0 +1,245 @@
+DAY 3 – C++ NOTES
+
+------------------------------------------------------------
+INTRODUCTION TO C++
+------------------------------------------------------------
+• Introduced in → 1979  
+• Creator → Bjarne Stroustrup  
+• Developed At → Bell Labs  
+• Initially called → “C with Classes”  
+• Standardization:  
+  C++89  
+  C++98  
+  C++03  
+  C++11  
+  C++14  
+  C++17  
+  C++20  
+  C++23  
+  C++26  
+
+Note:
+• Father of C++ → Bjarne Stroustrup  
+• C++11 introduced: auto, nullptr, smart pointers, etc.
+
+------------------------------------------------------------
+C++ DATA TYPES
+------------------------------------------------------------
+Basic:  
+int, float, double, char, void, bool, wchar_t  
+
+Derived:  
+Array, Pointer, Function  
+
+User-defined:  
+struct, union, enum, class  
+
+Type Modifiers:  
+signed, unsigned, short, long  
+
+Specifiers/Qualifiers:  
+const, volatile  
+
+------------------------------------------------------------
+STRUCTURE IN C++
+------------------------------------------------------------
+Limitations of C-style struct:  
+• All members public by default  
+• Cannot have constructors  
+• Cannot have destructors  
+• Cannot have member functions  
+• No access specifiers  
+
+C++ struct improvements:  
+• Can contain member functions  
+• Can use private/public/protected  
+• Can act similar to class  
+
+Note:
+• In C++, struct members can be private  
+• In C, struct members are always public  
+
+------------------------------------------------------------
+ACCESS SPECIFIERS
+------------------------------------------------------------
+public → accessible from anywhere  
+private → accessible only inside class  
+protected → available to class + derived classes  
+
+Difference:
+struct → default is public  
+class → default is private  
+
+------------------------------------------------------------
+CLASS & OBJECT
+------------------------------------------------------------
+Class → blueprint, contains data members + member functions  
+Object → instance of class  
+
+Note:
+• Object stored on stack if created normally  
+• Object stored on heap if created using `new`  
+
+------------------------------------------------------------
+GETTERS & SETTERS
+------------------------------------------------------------
+Used for accessing private data.
+
+Getter → read private value  
+Setter → modify private value  
+
+Example:
+int getRollNo();  
+void setRollNo(int r);
+
+Note:
+• Encapsulation uses getters & setters  
+• Private members cannot be accessed directly  
+
+------------------------------------------------------------
+EMPTY CLASS SIZE
+------------------------------------------------------------
+Empty class size = **1 byte**
+
+Reason:
+• To give each object a unique address  
+• Required by compiler for object identification  
+
+------------------------------------------------------------
+DATA MEMBERS & MEMBER FUNCTIONS
+------------------------------------------------------------
+Data members = attributes  
+Member functions = behaviors  
+
+Special types:
+• const member function  
+• static member function  
+• virtual function  
+
+const → function cannot modify class data  
+static → shared among all objects  
+virtual → used for runtime polymorphism  
+
+------------------------------------------------------------
+STREAMS IN C++ 
+------------------------------------------------------------
+Stream = flow of data between program and device.
+
+Input stream → cin  
+Output stream → cout  
+Error stream → cerr  
+Log/Debug stream → clog  
+
+C style:  
+\n → newline  
+\t → tab  
+%.2f → formatting  
+
+C++ style:  
+endl → newline + flush  
+setw(n) → width  
+fixed << setprecision(2) → decimal formatting  
+scientific → scientific notation  
+hex / dec → number base  
+
+Note:
+• cout belongs to ostream  
+• cin belongs to istream  
+
+------------------------------------------------------------
+HEADER GUARDS
+------------------------------------------------------------
+Prevents multiple inclusion of same header.
+
+Syntax:
+#ifndef MYFILE_H  
+#define MYFILE_H  
+
+// code  
+
+#endif  
+
+Alternative (non-standard but commonly used):
+#pragma once  
+
+Note:
+• #pragma once is compiler-specific  
+• Header guards avoid redefinition errors  
+
+------------------------------------------------------------
+#include < >  VS  " "
+------------------------------------------------------------
+#include < > → for standard headers (searches system directories)  
+#include " " → for user-defined headers (searches current directory first)  
+
+Note:
+• #include <iostream> → correct  
+• #include "student.h" → user-defined  
+
+------------------------------------------------------------
+STORAGE CLASSES IN C++
+------------------------------------------------------------
+auto  
+• Default for local variables  
+
+register  
+• Stored in CPU register for speed  
+• Modern compilers optimize automatically  
+• Address of register variable cannot be taken  
+
+static  
+• Retains value between function calls  
+• Static member shared by all objects  
+• Static global variable → file scope only  
+
+extern  
+• Used to declare variable defined in another file  
+
+Example:
+extern int count;  
+
+Note:
+• static local variable initialized only once  
+• extern does NOT allocate memory  
+
+------------------------------------------------------------
+VARIABLE LIFETIMES
+------------------------------------------------------------
+Automatic → local variables  
+Dynamic → created by new/malloc  
+Static → static + global variables  
+
+------------------------------------------------------------
+SCOPES IN C++
+------------------------------------------------------------
+• Global scope  
+• Local scope  
+• Block scope {}  
+• Function scope  
+• Class scope  
+• Namespace scope  
+• File scope (static)  
+
+Note:
+• Block variables destroyed after block ends  
+• :: (scope resolution operator) accesses global variable  
+
+------------------------------------------------------------
+NAMESPACE (VERY IMPORTANT)
+------------------------------------------------------------
+Namespace prevents name conflicts.
+
+Example:
+namespace my {  
+  int val = 25;  
+}
+
+Access:
+my::val  
+::val → global variable  
+
+Using namespace std → accesses standard library  
+
+Note:
+• Namespace keyword → namespace  
+• :: operator accesses global or specific namespace variable  
