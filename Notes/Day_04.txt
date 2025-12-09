@@ -1,0 +1,192 @@
+DAY 4 – C++ NOTES
+
+------------------------------------------------------------
+NAMESPACE 
+------------------------------------------------------------
+Namespace → logical grouping of classes, functions, variables.  
+Purpose → avoid name collisions + avoid global scope pollution.
+
+Syntax:
+namespace customer {
+   int calculate(int a, int b) {
+      return a + b * 0.18;
+   }
+}
+
+Features:
+• Prevents ambiguity  
+• Helps organize code  
+• Supports nested namespaces  
+
+Accessing values:
+customer::calculate(10, 20);  
+vendor::calculate(10);  
+
+using namespace X; → shortcut to access names inside that namespace.
+
+Note:
+• Namespace helps avoid naming conflicts  
+• :: is the scope resolution operator  
+
+------------------------------------------------------------
+NESTED NAMESPACE
+------------------------------------------------------------
+namespace CDACMumbai {
+   namespace PGDAC {
+      int totalStudent = 240;
+   }
+   namespace PGDBDA {
+      int totalStudent = 80;
+   }
+}
+
+Access:
+using namespace CDACMumbai::PGDAC;  
+cout << getCount();
+
+Note:
+• Nested namespaces are allowed  
+• Namespaces can have variables/functions  
+
+------------------------------------------------------------
+FUNCTION OVERLOADING (COMPILE-TIME POLYMORPHISM)
+------------------------------------------------------------
+Same function name + different parameters allowed.
+
+Allowed variations:
+- Different number of parameters  
+- Different types  
+- Different sequence  
+
+- Return type is NOT considered for overloading.
+
+Example:
+void display(int, int);
+void display(float, float);
+
+Notes:
+• Overloading not allowed in C, only in C++  
+• Changing return type only is invalid  
+• Overloading resolved during compile time  
+
+------------------------------------------------------------
+NAME MANGLING (C++ COMPILER FEATURE)
+------------------------------------------------------------
+C++ changes function names internally → unique encoding.
+
+Reason:
+• To support function overloading  
+• Avoid ambiguity
+
+Example mangled names:
+_Z3displayii  
+_Z3displayff  
+
+C does NOT mangle names.
+
+Note:
+• Name mangling helps C++ differentiate overloaded functions  
+• Tool "nm" shows mangled symbols  
+
+------------------------------------------------------------
+extern "C" 
+------------------------------------------------------------
+extern "C" tells C++ compiler:
+“Do NOT apply name mangling, treat this as C function.”
+
+Used for:
+- Using C library inside C++  
+- Embedded programming  
+- Mixed-language projects  
+
+Syntax:
+extern "C" {
+   void display(float);
+}
+
+Note:
+• extern “C” removes name mangling  
+• extern (alone) is only a storage class  
+
+------------------------------------------------------------
+ENUM & ENUM CLASS
+------------------------------------------------------------
+Enum → group of named integer constants.
+
+enum Zemo {
+   A, B = 10, C, D = 20, E
+};
+
+Auto increments unless assigned.
+
+Enum class (C++11):
+- Strongly typed  
+- Scoped  
+- Avoids name collisions  
+
+Syntax:
+enum class Color { RED, BLUE, GREEN };
+
+Access:
+Color::RED
+
+Note:
+• enum class is type-safe  
+• Normal enum allows implicit int conversion  
+• enum class uses scope resolution operator (::)  
+
+------------------------------------------------------------
+DEFAULT ARGUMENTS
+------------------------------------------------------------
+Used to assign default values to function parameters.
+
+Example:
+void add(int a = 10, int b = 20);
+
+Rules:
+- Default values must be from RIGHT to LEFT  
+- You can skip rightmost parameters only  
+- You cannot assign default to first param if second param has no default  
+
+Valid:
+void add(int a, int b = 10);
+
+Invalid:
+void add(int a = 10, int b);
+
+Note:
+• Default arguments + overloading together can cause ambiguity  
+• Default parameters must be trailing  
+
+------------------------------------------------------------
+THIS POINTER 
+------------------------------------------------------------
+In C++, `this` is a pointer to the current object.
+
+Used for:
+- Resolving variable shadowing  
+- Returning current object  
+- Accessing members inside class  
+
+Example:
+void setData(int rollNo) {
+   this->rollNo = rollNo;
+}
+
+Note:
+• this pointer is available in all non-static member functions  
+• static functions DO NOT have this pointer  
+• this → pointer to invoking object  
+
+------------------------------------------------------------
+SUMMARY 
+------------------------------------------------------------
+• Namespace avoids naming conflicts  
+• :: resolves scope  
+• Function overloading → compile-time polymorphism  
+• Return type not considered for overloading  
+• Name mangling enables overloading  
+• extern "C" disables name mangling  
+• enum class prevents collisions, strongly typed  
+• Default arguments go RIGHT → LEFT  
+• this pointer refers to current object  
