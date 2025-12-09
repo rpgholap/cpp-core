@@ -1,7 +1,7 @@
 DAY 5 – C++ NOTES
 
 ------------------------------------------------------------
-THIS POINTER (FINAL PART)
+THIS POINTER 
 ------------------------------------------------------------
 `this` → pointer to the current calling object.
 
