@@ -1,0 +1,196 @@
+DAY 1 – C NOTES
+
+------------------------------------------------------------
+ENVIRONMENT SETUP
+------------------------------------------------------------
+• Install MinGW → provides gcc (C compiler) and g++ (C++ compiler)
+• Add MinGW/bin to Environment Variables → so compiler can run from anywhere
+• Install Eclipse IDE → requires CDT plugin for C/C++ development
+• Change Perspective → C/C++ (shows proper views like Outline, Problems, Console)
+
+------------------------------------------------------------
+C LANGUAGE HISTORY (COMMON MCQs)
+------------------------------------------------------------
+• Creator → Dennis Ritchie
+• Year Introduced → 1972
+• Developed At → Bell Labs
+• ANSI C Standard Released → 1989 (also called C89/C90)
+
+------------------------------------------------------------
+C LANGUAGE STANDARDS
+------------------------------------------------------------
+• C89 / C90 → First official standard
+• C99 → Added new features (e.g., // comments, inline functions, variable length arrays)
+• C11 → Multithreading support
+• C18 → Minor bug fixes
+• C23 → Latest revision
+
+------------------------------------------------------------
+HELLO WORLD PROGRAM (BASIC STRUCTURE)
+------------------------------------------------------------
+#include <cstdio>   // header file contains printf() declaration
+int main() {
+    printf("Hello, World!");
+    return 0;
+}
+
+Note:
+• main() must return an int (standard)
+• return 0 → indicates successful execution to OS
+
+------------------------------------------------------------
+FUNDAMENTAL LANGUAGE CONCEPTS
+------------------------------------------------------------
+Token → smallest unit (keywords, identifiers, operators, literals)
+Keyword → pre-defined meanings (int, return, float, if, else)
+Identifier → names given by user (variables, functions)
+Literal → fixed values (10, 'A', 3.14)
+Variable → named memory location
+Data Type → describes what type of data variable stores
+
+------------------------------------------------------------
+DATA TYPES IN C
+------------------------------------------------------------
+Basic Data Types:
+• int → integers
+• float → single precision decimal
+• double → double precision decimal
+• char → single character
+• void → no value
+
+Derived Data Types:
+• Arrays → group of same-type values
+• Pointers → store memory addresses
+• Functions → reusable blocks of code
+
+User-Defined Data Types:
+• Structures → group of different data types
+    struct Student {
+        int roll;
+        char name[50];
+    };
+• Unions → share memory between members (saves memory)
+
+------------------------------------------------------------
+STRUCT VS UNION (IMPORTANT MCQ)
+------------------------------------------------------------
+Structure → each member has separate memory  
+Union → all members share the same memory block
+
+------------------------------------------------------------
+ENTRY POINT FUNCTION (main)
+------------------------------------------------------------
+Standard forms:
+1. int main()
+2. int main(int argc, char* args[])
+3. int main(int argc, char* args[], char* envp[])
+
+Meaning:
+• argc → argument count
+• args[] → command-line arguments
+• envp[] → environment variables
+
+Non-standard form:
+• void main() → NOT recommended
+
+------------------------------------------------------------
+PROGRAM EXECUTION FLOW (VERY IMPORTANT)
+------------------------------------------------------------
+1. Preprocessor → handles #include, #define, removes comments
+2. Compiler → converts C → assembly
+3. Assembler → assembly → machine code
+4. Linker → joins multiple .o (object) files → final .exe
+5. Loader → loads executable into RAM to run
+
+------------------------------------------------------------
+COMMENTS
+------------------------------------------------------------
+Single line → // comment
+Multi-line → /* comment */
+
+------------------------------------------------------------
+DECLARATION vs DEFINITION vs INITIALIZATION vs ASSIGNMENT
+------------------------------------------------------------
+Declaration → telling compiler the variable exists  
+    int num;
+
+Definition → allocating memory  
+    int num = 10;
+
+Initialization → first value at creation  
+    int x = 5;
+
+Assignment → giving value after creation  
+    int y;  
+    y = 20;
+
+------------------------------------------------------------
+FUNCTIONS (MCQ HOT TOPIC)
+------------------------------------------------------------
+Function Prototype → tells return type + parameters  
+    int add(int, int);
+
+Function Call → using the function  
+    add(5, 3);
+
+Function Definition → actual code  
+    int add(int a, int b) { return a + b; }
+
+Types of Functions:
+1. With args, with return
+2. With args, without return
+3. Without args, with return
+4. Without args, without return
+
+------------------------------------------------------------
+MEMORY STRUCTURE (BASIC UNDERSTANDING)
+------------------------------------------------------------
+Function Activation Record includes:
+• parameters
+• local variables
+• return address
+• function’s temporary data
+
+Used during function calls (stack memory).
+
+------------------------------------------------------------
+POINTERS (VERY IMPORTANT)
+------------------------------------------------------------
+Pointer → variable that stores address of another variable
+
+Declaration (all valid):
+int *ptr;
+int* ptr;
+int * ptr;
+
+Basic Operations:
+• Referencing → ptr = &num;   // gets address
+• Dereferencing → *ptr        // gets value at address
+
+Example:
+int num = 10;
+int *ptr = &num;
+*ptr = 20;
+
+Output Understanding:
+• Value of num → 20
+• Address of num → &num
+• Address stored in ptr → ptr
+• Address of pointer itself → &ptr
+
+------------------------------------------------------------
+IMPORTANT MCQ QUICK FACTS
+------------------------------------------------------------
+• C/C++ are strongly typed → cannot assign "string" to int
+• main() must return int (standard)
+• void main() is non-standard
+• Preprocessor removes comments
+• #include is handled by preprocessor
+• struct allocates separate memory
+• union shares memory
+• *ptr → gives value at address
+• &var → gives address of variable
+• argc → number of arguments
+• args[] → actual arguments
+• printf() in C is in stdio.h (or cstdio in C++)
+
