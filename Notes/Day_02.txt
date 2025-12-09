@@ -1,0 +1,176 @@
+DAY 2 – C / C++ NOTES
+
+------------------------------------------------------------
+TYPE MODIFIERS 
+------------------------------------------------------------
+Modifiers tell how much range or sign a datatype can store.
+
+• signed     → allows +ve and -ve values  
+• unsigned   → allows only +ve values  
+• short      → reduces the range  
+• long       → increases the range  
+
+Example MCQs:
+• unsigned int cannot store negative values  
+• long has bigger range than int  
+
+------------------------------------------------------------
+TYPE CLASSIFIERS
+------------------------------------------------------------
+• const → makes variable read-only (cannot modify value)
+• volatile → value may change unexpectedly (hardware, sensors etc.)
+
+Common usage:
+volatile int tempSensor;  // may change outside the program
+
+------------------------------------------------------------
+POINTER SIZE (COMMON INTERVIEW Q)
+------------------------------------------------------------
+Pointer size = architecture dependent  
+NOT datatype dependent.
+
+• 32-bit system → pointer size = 4 bytes  
+• 64-bit system → pointer size = 8 bytes
+
+“Size of int* on 64-bit system is?” → 8 bytes
+
+------------------------------------------------------------
+POINTER BASICS
+------------------------------------------------------------
+int num1 = 10;
+int* ptr = &num1;     // referencing  
+*ptr → accesses value (dereferencing)  
+
+Reassigning pointer:
+ptr = &num2;  // valid → pointer can point to new address  
+*ptr = 30;    // modifies value at that address  
+
+IMPORTANT:
+• You CANNOT assign address using dereference  
+  *ptr = &num2;  // invalid  
+
+------------------------------------------------------------
+WILD POINTER
+------------------------------------------------------------
+Pointer declared but not initialized → points to random memory.
+
+int *p;    // wild pointer
+
+Dereferencing it → segmentation fault  
+*p;  // dangerous
+
+MCQ:
+“Pointer that is not initialized is called?” → Wild pointer
+
+------------------------------------------------------------
+NULL vs nullptr (MCQ HOT TOPIC)
+------------------------------------------------------------
+NULL:
+• Macro defined in stdio.h  
+• Equivalent to integer 0  
+• Used in C  
+
+nullptr:
+• Introduced in C++11  
+• Type-safe null pointer  
+• Recommended in C++
+
+Example:
+int *p = NULL;     // C  
+int *p2 = nullptr; // C++  
+
+Note:
+NULL behaves like an integer 0 → can cause wrong function overloading.
+
+------------------------------------------------------------
+FUNCTION OVERLOADING & nullptr
+------------------------------------------------------------
+Example:
+
+void func(int);
+void func(char*);
+
+func(NULL);     → calls func(int) (unexpected)  
+func(nullptr);  → calls func(char*) (correct)  
+
+MCQ:
+• nullptr avoids ambiguity  
+• NULL = 0, so matches integer version
+
+------------------------------------------------------------
+CONST + POINTER COMBINATIONS (VERY IMPORTANT TOPIC)
+------------------------------------------------------------
+
+**const int *ptr**  OR  **int const *ptr**  
+Meaning:  
+- data is constant (cannot modify)  
+- pointer can point to another variable  
+
+Example:
+const int *p = &a;
+p = &b;    // valid  
+*p = 20;   // not allowed  
+
+**int *const ptr**  
+Meaning:  
+- pointer is constant (cannot change address)  
+- data can be modified  
+
+Example:
+int *const p = &a;
+*p = 20;   // valid  
+p = &b;    // not allowed  
+
+**const int *const ptr**  
+Meaning:  
+- data is constant  
+- pointer is constant  
+
+*p = 20;   // no  
+p = &b;    // no  
+
+**const int const *ptr**  
+INVALID due to duplicate const.
+
+Note:
+• const before * → data constant  
+• const after * → pointer constant  
+
+------------------------------------------------------------
+STRUCTURE IN C (USER-DEFINED DATA TYPE)
+------------------------------------------------------------
+structure → groups variables of different data types.
+
+struct Student {
+    int rollNo;
+    char name[20];
+};
+
+Important points:
+• No member functions (in C)  
+• By default → members are public  
+• Access using object or pointer  
+
+Passing structure to function (recommended):
+setData(&s1);
+printData(&s1);
+
+Access using arrow operator:
+s1->rollNo  
+
+Note:
+• In C, struct cannot have constructors  
+• Must write “struct Student s1;” (typedef not used yet)
+
+------------------------------------------------------------
+Summary
+------------------------------------------------------------
+• unsigned cannot store negative numbers  
+• volatile used when variable changes externally  
+• Pointer size depends on architecture  
+• NULL = 0, nullptr = keyword  
+• Wild pointer = uninitialized pointer  
+• const int *ptr → data constant  
+• int *const ptr → pointer constant  
+• struct in C cannot contain functions  
+• arrow operator (->) accesses members using pointer  
