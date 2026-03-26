@@ -1,0 +1,116 @@
+Library Management System - Interactive Console Demo
+
+This file demonstrates what running the application looks like and how to interact with the menu system for the core Library features.
+
+---
+
+No previous data found or error loading data. Starting fresh.
+
+===== Library Management System =====
+1. Add New Book
+2. Remove Book
+3. Search Book
+4. Display All Books
+5. Register Member
+6. Remove Member
+7. Search Member
+8. Display All Members
+9. Issue Book
+10. Return Book
+11. View Overdue Books
+12. Save Data
+13. Load Data
+0. Exit
+=====================================
+Select an option: 1
+Enter Book ID: 101
+Enter Title: Introduction to C++
+Enter Author: Bjarne Stroustrup
+Enter ISBN: 978-0321958327
+Enter Genre (0:Fiction, 1:Non-Fiction, 2:Sci-Fi, 3:Tech, 4:Mystery, 5:Programming, 6:Other): 5
+Enter Quantity: 1
+Book added successfully!
+
+Select an option: 1
+Enter Book ID: 102
+Enter Title: Clean Code
+Enter Author: Robert C. Martin
+Enter ISBN: 978-0132350884
+Enter Genre (0:Fiction, 1:Non-Fiction, 2:Sci-Fi, 3:Tech, 4:Mystery, 5:Programming, 6:Other): 5
+Enter Quantity: 2
+Book added successfully!
+
+Select an option: 5
+Enter Member ID: 1
+Enter Name: Alice Smith
+Enter Phone: 555-0101
+Member registered successfully!
+
+Select an option: 5
+Enter Member ID: 2
+Enter Name: Bob Jones
+Enter Phone: 555-0202
+Member registered successfully!
+
+Select an option: 9
+Enter Member ID: 1
+Enter Book ID: 101
+Book issued successfully. Transaction ID: 1
+
+Select an option: 9
+Enter Member ID: 2
+Enter Book ID: 101
+
+[Library Error] Error in issueBook at line 103: No copies available.
+
+Select an option: 10
+Enter Member ID: 1
+Enter Book ID: 101
+Book returned. Fine: $0
+
+Select an option: 9
+Enter Member ID: 2
+Enter Book ID: 101
+Book issued successfully. Transaction ID: 2
+
+Select an option: 4
+--- All Books ---
+101 | Introduction to C++ | Bjarne Stroustrup | Copies: 0/1
+102 | Clean Code | Robert C. Martin | Copies: 2/2
+
+Select an option: 8
+--- All Members ---
+[Member] ID: 1 | Name: Alice Smith | Phone: 555-0101 | Books Issued: 0
+[Member] ID: 2 | Name: Bob Jones | Phone: 555-0202 | Books Issued: 1
+
+Select an option: 12
+Data saved successfully to data/ directory.
+
+Select an option: 0
+Exiting system. Have a good day!
+
+
+==============================================================
+After restarting the Program (Simulating App Restart):
+==============================================================
+
+Data loaded successfully.
+
+===== Library Management System =====
+1. Add New Book
+...
+13. Load Data
+0. Exit
+=====================================
+Select an option: 8
+--- All Members ---
+[Member] ID: 1 | Name: Alice Smith | Phone: 555-0101 | Books Issued: 0
+[Member] ID: 2 | Name: Bob Jones | Phone: 555-0202 | Books Issued: 1
+
+Select an option: 99
+--- Polymorphism Test ---
+[Member] ID: 999 | Name: Test Member | Phone: 1234567890 | Books Issued: 0
+Test completed.
+
+Select an option: 0
+Exiting system. Have a good day!
